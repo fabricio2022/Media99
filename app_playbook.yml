@@ -13,11 +13,11 @@
    - name: Create new directory
      become_user: fabricio
      file:
-      path: /home/ubuntu/target
+      path: /home/faricio/target
       state: directory
    - name: Copy the source code to hosts
-     copy: src=./{{ item }} dest=/home/ubuntu/target/
-     become_user: ubuntu
+     copy: src=./{{ item }} dest=/home/fabricio/target/
+     become_user: fabricio
      with_items:
         - app
         - migrations
@@ -28,8 +28,8 @@
         - Dockerfile
         - requirements
    - name: Set the executable permission
-     command: chmod +x /home/ubuntu/target/boot.sh  
+     command: chmod +x /home/fabricio/target/boot.sh  
    - name: Build Docker Image
-     command: chdir=/home/ubuntu/target/ docker build . -t mediaapp
+     command: chdir=/home/fabricio/target/ docker build . -t mediaapp
    - name: Run Docker Container
-     command: chdir=/home/ubuntu/target/ docker run -itd -e SECRET_KEY="{{ SECRET_KEY }}" -p 8085:5000 mediaapp
+     command: chdir=/home/fabricio/target/ docker run -itd -e SECRET_KEY="{{ SECRET_KEY }}" -p 8085:5000 mediaapp
