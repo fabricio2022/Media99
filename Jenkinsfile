@@ -22,7 +22,7 @@ pipeline{
    		}
 		stage('invoke playbook'){
       			steps{
-				ansiblePlaybook credentialsId: 'super', disableHostKeyChecking: true, inventory: '/home/fabricio', installation: 'AnsibleSuper', playbook: './app_playbook.yml', vaultCredentialsId: 'VaultID1'               			}
+				ansiblePlaybook credentialsId: 'super', disableHostKeyChecking: true, inventory: '/home/fabricio/inventory', installation: 'AnsibleSuper', playbook: './app_playbook.yml', vaultCredentialsId: 'VaultID1'               			}
    		}
 	}
 }
