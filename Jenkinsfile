@@ -3,7 +3,7 @@ pipeline{
 	stages{
 		stage('Checkout'){
 			steps{
-				git branch: 'vault', url: 'https://github.com/AnjuMeleth/Media99.git'
+				git branch: 'vault', url: 'https://github.com/fabricio2022/Media99.git'
 			}
 		}
     		stage('Setup'){
@@ -22,7 +22,7 @@ pipeline{
    		}
 		stage('invoke playbook'){
       			steps{
-				ansiblePlaybook credentialsId: 'UbuntuID1', disableHostKeyChecking: true, inventory: '/etc/ansible/hosts', installation: 'A1', playbook: './app_playbook.yml', vaultCredentialsId: 'VaultID1'               			}
+				ansiblePlaybook credentialsId: 'super', disableHostKeyChecking: true, inventory: '/home/fabricio', installation: 'AnsibleSuper', playbook: './app_playbook.yml', vaultCredentialsId: 'VaultID1'               			}
    		}
 	}
 }
