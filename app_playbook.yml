@@ -13,7 +13,7 @@
    - name: Create new directory
      become_user: fabricio
      file:
-      path: /home/faricio/target
+      path: /home/fabricio/target
       state: directory
    - name: Copy the source code to hosts
      copy: src=./{{ item }} dest=/home/fabricio/target/
